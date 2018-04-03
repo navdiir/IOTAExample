@@ -1,0 +1,19 @@
+{
+  "name": "IOTAExample",
+  "version": "0.0.1",
+  "description": "An example of transaction in tangle",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "transaction",
+    "IOTA",
+    "tangle"
+  ],
+  "author": "@chrislaive",
+  "license": "MIT",
+  "dependencies": {
+    "iota.lib.js": "^0.4.7"
+  }
+}
