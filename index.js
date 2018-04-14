@@ -29,7 +29,7 @@ iota.api.sendTransfer(trytes, 3, 14, transfers, (error, success) => {
 		console.log(success)
 		console.log('\n\n Mensaje encriptado:\n')
 		console.log(iota.utils.fromTrytes(message))
-		console.log('\n Ingresar a https://thetangle.org y copiar este hash: \n')
+		console.log('\n Ingresar a https://thetangle.org y copiar el hash en el buscador: \n')
 		console.log(success[0].hash)
     }
 })
