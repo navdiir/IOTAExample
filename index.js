@@ -4,10 +4,10 @@ const IOTA = require('iota.lib.js')
 const iota = new IOTA({ 'provider': 'http://node02.iotatoken.nl:14265' })
 
 //Creamos nuestra address, esta es inventada y no tiene importancia al ser una address para demo y de valor 0
-const trytes = 'NIITLOVESIOTANIITLOVESIOTANIITLOVESIOTANIITLOVESIOTANIITLOVESIOTA999CHRISLAIVE99Q'
+const trytes = 'NIITLOVESIOTANIITLOVESIOTANIITLOVESIOTANIITLOVESIOTANIITLOVESIOTA999CHRISLAIVE999'
 
 //Hacemos uso de la libreria de IOTA con el método 'toTrytes()' para convertir nuestro mensaje a trytes
-let message = iota.utils.toTrytes('¡Mi primera transacción de 0 IOTAS junto al NiiT UNMSM y @Chrislaive!')
+let message = iota.utils.toTrytes('¡Mi primera transacción de 0 IOTAS junto al NiiT UNMSM y @Chrislaive en el ArduinoDay Perú 2018!')
 
 //Creamos un objeto transferencia con los valores anteriores y asignamos 'value': cero, al ser una transacción sin valor
 const transfers = [
@@ -15,7 +15,7 @@ const transfers = [
         value: 0,
         address: trytes,
         message: message,
-		tag: 'QCHRISLAIVELOVESIOTA'
+		tag: 'ARDUINODAYPERUUNMSM'
     }
 ]
 
