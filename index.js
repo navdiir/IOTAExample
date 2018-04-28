@@ -1,7 +1,7 @@
 'use strict'
 
 const IOTA = require('iota.lib.js')
-const iota = new IOTA({ 'provider': 'http://node02.iotatoken.nl:14265' })
+const iota = new IOTA({ 'provider': 'http://iotahosting.org:14265' })
 
 //Create a new address and doesnt matter which one we choose because this is a 0 value transaction
 const trytes = 'NIITLOVESIOTANIITLOVESIOTANIITLOVESIOTANIITLOVESIOTANIITLOVESIOTA999CHRISLAIVE999'
