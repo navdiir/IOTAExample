@@ -15,5 +15,5 @@ npm install
 After you've successfully installed you can execute index for a simple user experience
 
 ```
-node index.js
+node start
 ```

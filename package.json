@@ -1,10 +1,11 @@
 {
   "name": "IOTAExample",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "An example of transaction in tangle",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node index.js"
   },
   "keywords": [
     "transaction",
@@ -14,6 +15,12 @@
   "author": "@chrislaive",
   "license": "MIT",
   "dependencies": {
-    "iota.lib.js": "^0.4.7"
+    "@iota/converter": "^1.0.0-beta.8",
+    "@iota/core": "^1.0.0-beta.8"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.2.3"
   }
 }

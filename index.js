@@ -1,13 +1,17 @@
 'use strict'
 
-const IOTA = require('iota.lib.js')
-const iota = new IOTA({ 'provider': 'http://iotahosting.org:14265' })
+import {composeAPI} from '@iota/core'
+import {asciiToTrytes,trytesToAscii} from '@iota/converter'
+
+const iota = composeAPI({
+    provider: 'https://nodes.thetangle.org:443'
+})
 
 //Create a new address and doesnt matter which one we choose because this is a 0 value transaction
-const trytes = 'NIITLOVESIOTANIITLOVESIOTANIITLOVESIOTANIITLOVESIOTANIITLOVESIOTA999CHRISLAIVE999'
+const trytes = '9CHRISLAIVELOVESIOTA9CHRISLAIVELOVESIOTA9CHRISLAIVELOVESIOTA9CHRISLAIVELOVESIOTA9'
 
 //We used a method from iota.utils called "toTrytes()" to convert our message to Trytes
-let message = iota.utils.toTrytes('¡My first transaction to 0 IOTAS with NiiT UNMSM and @Chrislaive!')
+let message = asciiToTrytes('My first transaction to 0 IOTAS with @Chrislaive!')
 
 //We create a transfer object with that data and set value in 0 for our free transaction
 const transfers = [
@@ -19,17 +23,20 @@ const transfers = [
     }
 ]
 
-//In this part we send our object transfer with a callback and give some details
-iota.api.sendTransfer(trytes, 3, 14, transfers, (error, success) => {
-    if (error) {
-        console.log(error)
-    } else {
+//In this part we send our object transfer with some details
+
+iota.prepareTransfers(trytes, transfers)
+    .then(trytes1=>{
+        return iota.sendTrytes(trytes1,3,14)
+    })
+    .then(bundle=>{
         console.log('\n Transaction Success!!')
 		console.log('\n Details of the transaction: \n') 
-		console.log(success)
 		console.log('\n\n Encrypted message:\n')
-		console.log(iota.utils.fromTrytes(message))
+		console.log(trytesToAscii(message))
 		console.log('\n Go to https://thetangle.org and paste this Hash for find your transaction in tangle: \n')
-		console.log(success[0].hash)
-    }
-})
+		console.log(bundle[0].hash)
+    })
+    .catch(err=>{
+        console.log('Something fail.')
+    })
